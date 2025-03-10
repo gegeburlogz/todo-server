@@ -14,7 +14,7 @@ This is a Todo server built with Fastify and MongoDB. It provides endpoints to c
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/todo-server.git
+    git clone https://github.com/gegeburlogz/todo-server.git
     cd todo-server
     ```
 
@@ -26,7 +26,8 @@ This is a Todo server built with Fastify and MongoDB. It provides endpoints to c
 3. Set up environment variables:
     Create a [.env](http://_vscodecontentref_/0) file in the root directory and add your MongoDB connection string:
     ```env
-    MONGODB_URI=mongodb://localhost:27017/todo
+    URI =  mongodb://localhost:27017
+    DN_NAME = tasks
     ```
 
 4. Start the server:
@@ -36,7 +37,7 @@ This is a Todo server built with Fastify and MongoDB. It provides endpoints to c
 
 ## Usage
 
-The server will start on `http://localhost:3000`. You can use tools like Postman or curl to interact with the API.
+The server will start on `http://localhost:3212`. You can use tools like Postman or curl to interact with the API.
 
 ## API Endpoints
 
@@ -49,16 +50,16 @@ The server will start on `http://localhost:3000`. You can use tools like Postman
     {
       "todo": "Task description",
       "status": false,
-      "type": "personal"
+      "type": "personal" || "professional"
     }
     ```
 - **Response:**
     ```json
     {
-      "id": "task_id",
+      "_id": "task_id",
       "todo": "Task description",
       "status": false,
-      "type": "personal",
+      "type": "personal" || "professional",
       "createdAt": "2023-01-01T00:00:00.000Z",
       "updatedAt": "2023-01-01T00:00:00.000Z"
     }
@@ -96,7 +97,7 @@ The server will start on `http://localhost:3000`. You can use tools like Postman
 ### Update Task
 
 - **URL:** `/tasks/:id`
-- **Method:** `PUT`
+- **Method:** `PATCH`
 - **Body:**
     ```json
     {
